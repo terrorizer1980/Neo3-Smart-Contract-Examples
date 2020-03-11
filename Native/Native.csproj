@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Message Text="Start NeoContract converter, Source File: $(TargetPath)" Importance="high">
+    </Message>
+    <Exec Command="neon -f &quot;$(TargetPath)&quot; -o&#xD;&#xA;copy &quot;D:\1code\chenzhitong\Neo3 Smart Contract Examples\Native\bin\Debug\netstandard2.1\Native.nef&quot; &quot;D:\1code\neo-project\neo-node\neo-cli\bin\Debug\netcoreapp3.0\publish8\Native.nef&quot;&#xD;&#xA;copy &quot;D:\1code\chenzhitong\Neo3 Smart Contract Examples\Native\bin\Debug\netstandard2.1\Native.manifest.json&quot; &quot;D:\1code\neo-project\neo-node\neo-cli\bin\Debug\netcoreapp3.0\publish8\Native.manifest.json&quot;" />
+  </Target>
+
+  <ItemGroup>
+    <Reference Include="Neo.SmartContract.Framework">
+      <HintPath>Neo.SmartContract.Framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
