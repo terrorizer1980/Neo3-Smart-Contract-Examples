@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NEP5", "Neo3 Smart Contract
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tools", "Neo3 Smart Contract Examples\Tools\Tools.csproj", "{75A9A085-E49A-4CD5-B5C0-9FE4F1D60CC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamic Call", "Dynamic Call\Dynamic Call.csproj", "{F88338D9-D95B-49EE-ACA3-7C694E186CAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{75A9A085-E49A-4CD5-B5C0-9FE4F1D60CC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75A9A085-E49A-4CD5-B5C0-9FE4F1D60CC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75A9A085-E49A-4CD5-B5C0-9FE4F1D60CC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F88338D9-D95B-49EE-ACA3-7C694E186CAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F88338D9-D95B-49EE-ACA3-7C694E186CAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F88338D9-D95B-49EE-ACA3-7C694E186CAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F88338D9-D95B-49EE-ACA3-7C694E186CAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
