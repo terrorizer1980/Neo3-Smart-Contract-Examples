@@ -3,7 +3,7 @@ using Neo.Wallets;
 using System;
 using System.Linq;
 
-namespace ConsoleApp1
+namespace Tools
 {
     class Program
     {
