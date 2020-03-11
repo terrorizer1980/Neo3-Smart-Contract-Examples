@@ -17,7 +17,7 @@ namespace Serialization
 
                 //return $"{d.BlockHeight} {d.Title} {d.Content}"; 这么写会报错
                 //return d.BlockHeight + d.Title + d.Content; 这么写会报错
-                //return return d.BlockHeight; 这么写会报错，抓狂
+                //return d.BlockHeight.ToString(); 这么写会报错，抓狂
 
                 return d.BlockHeight;
             }
