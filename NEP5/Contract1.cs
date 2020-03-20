@@ -19,7 +19,6 @@ namespace NEP5
 
         public static object Main(string method, object[] args)
         {
-            var v = 3;
             if (Runtime.Trigger == TriggerType.Verification)
             {
                 return Runtime.CheckWitness(Owner);
