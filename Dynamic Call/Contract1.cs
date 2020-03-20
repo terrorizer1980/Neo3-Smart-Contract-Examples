@@ -9,9 +9,9 @@ namespace Dynamic_Call
     {
         delegate object Dyncall(string method, object[] args);
 
-        //0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 µÄĞ¡¶ËĞò
-        //HexToBytes()¡¢ToScriptHash() Ö»ÄÜ¶Ô³£Á¿½øĞĞ²Ù×÷£¬²»ÄÜĞ´ÔÚ Main ·½·¨Àï
-        //scriptHash Ò²¿ÉÒÔ¸ÄÎª´Ó²ÎÊı´«Èë»ò´Ó´æ´¢ÇøÖĞ¶ÁÈ¡
+        //0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 çš„å°ç«¯åº
+        //HexToBytes()ã€ToScriptHash() åªèƒ½å¯¹å¸¸é‡è¿›è¡Œæ“ä½œï¼Œä¸èƒ½å†™åœ¨ Main æ–¹æ³•é‡Œ
+        //scriptHash ä¹Ÿå¯ä»¥æ”¹ä¸ºä»å‚æ•°ä¼ å…¥æˆ–ä»å­˜å‚¨åŒºä¸­è¯»å–
         static byte[] ScriptHash = "f9f81497c3f9b62ba93f73c711d41b1eeff50c23".HexToBytes();
 
         public static object Main(string operation, object[] args)

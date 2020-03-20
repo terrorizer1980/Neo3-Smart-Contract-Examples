@@ -7,7 +7,7 @@
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Message Text="Start NeoContract converter, Source File: $(TargetPath)" Importance="high">
     </Message>
-    <Exec Command="neon -f &quot;$(TargetPath)&quot; -o&#xD;&#xA;copy &quot;D:\1code\chenzhitong\Neo3 Smart Contract Examples\Dynamic Call\bin\Debug\netstandard2.1\Dynamic Call.nef&quot; &quot;D:\1code\neo-project\neo-node\neo-cli\bin\Debug\netcoreapp3.0\publish8\Dynamic Call.nef&quot;&#xD;&#xA;copy &quot;D:\1code\chenzhitong\Neo3 Smart Contract Examples\Dynamic Call\bin\Debug\netstandard2.1\Dynamic Call.manifest.json&quot; &quot;D:\1code\neo-project\neo-node\neo-cli\bin\Debug\netcoreapp3.0\publish8\Dynamic Call.manifest.json&quot;" />
+    <Exec Command="neon -f &quot;$(TargetPath)&quot; -o" />
   </Target>
 
   <ItemGroup>

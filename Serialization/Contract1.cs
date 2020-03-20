@@ -15,9 +15,9 @@ namespace Serialization
                 var s = news.Serialize();
                 var d = s.Deserialize() as News;
 
-                //return $"{d.BlockHeight} {d.Title} {d.Content}"; ÕâÃ´Ð´»á±¨´í
-                //return d.BlockHeight + d.Title + d.Content; ÕâÃ´Ð´»á±¨´í
-                //return d.BlockHeight.ToString(); ÕâÃ´Ð´»á±¨´í£¬×¥¿ñ
+                //return $"{d.BlockHeight} {d.Title} {d.Content}"; è¿™ä¹ˆå†™ä¼šæŠ¥é”™
+                //return d.BlockHeight + d.Title + d.Content; è¿™ä¹ˆå†™ä¼šæŠ¥é”™
+                //return d.BlockHeight.ToString(); è¿™ä¹ˆå†™ä¼šæŠ¥é”™ï¼ŒæŠ“ç‹‚
 
                 return d.BlockHeight;
             }
