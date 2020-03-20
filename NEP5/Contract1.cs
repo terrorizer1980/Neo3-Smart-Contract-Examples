@@ -19,6 +19,7 @@ namespace NEP5
 
         public static object Main(string method, object[] args)
         {
+            var v = 3;
             if (Runtime.Trigger == TriggerType.Verification)
             {
                 return Runtime.CheckWitness(Owner);
@@ -127,6 +128,14 @@ namespace NEP5
 
             Transferred(from, to, amount);
             return true;
+        }
+    }
+
+    public static class Helper
+    {
+        public static BigInteger TryToBigInteger(this byte[] value)
+        {
+            return value?.ToBigInteger() ?? 0;
         }
     }
 }
