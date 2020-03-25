@@ -17,6 +17,10 @@ namespace NEP5
 
         private static readonly byte[] Owner = "NfKA6zAixybBHHpmaPYPDywoqDaKzfMPf9".ToScriptHash(); //Owner Address
 
+        private static readonly StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
+
+        private static readonly StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
+
         public static object Main(string method, object[] args)
         {
             if (Runtime.Trigger == TriggerType.Verification)
@@ -50,9 +54,9 @@ namespace NEP5
         public static bool Deploy()
         {
             if (TotalSupply() != 0) return false;
-            StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
+            
             contract.Put("totalSupply", TotalSupplyValue);
-            StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
+            
             asset.Put(Owner, TotalSupplyValue);
             Transferred(null, Owner, TotalSupplyValue);
             return true;
@@ -63,7 +67,6 @@ namespace NEP5
         {
             if (account.Length != 20)
                 throw new InvalidOperationException("The parameter account SHOULD be 20-byte addresses.");
-            StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
             return asset.Get(account).TryToBigInteger();
         }
 
@@ -88,7 +91,6 @@ namespace NEP5
         [DisplayName("totalSupply")]
         public static BigInteger TotalSupply()
         {
-            StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
             return contract.Get("totalSupply").TryToBigInteger();
         }
 
@@ -108,7 +110,6 @@ namespace NEP5
                 return false;
             if (!Runtime.CheckWitness(from) && from.TryToBigInteger() != callscript.TryToBigInteger())
                 return false;
-            StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
             var fromAmount = asset.Get(from).TryToBigInteger();
             if (fromAmount < amount)
                 return false;
