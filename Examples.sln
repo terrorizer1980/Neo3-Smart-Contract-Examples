@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serialization", "Serializat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Native", "Native\Native.csproj", "{413E28AF-6888-4322-865C-7C6EB2B273AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageExample", "StorageExample\StorageExample.csproj", "{223E9AFC-A26D-4772-A65F-3FD89B2DD174}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StorageExample", "StorageExample\StorageExample.csproj", "{223E9AFC-A26D-4772-A65F-3FD89B2DD174}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{2667419A-DF37-4A85-A62C-68DC7928EC3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{223E9AFC-A26D-4772-A65F-3FD89B2DD174}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{223E9AFC-A26D-4772-A65F-3FD89B2DD174}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{223E9AFC-A26D-4772-A65F-3FD89B2DD174}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2667419A-DF37-4A85-A62C-68DC7928EC3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2667419A-DF37-4A85-A62C-68DC7928EC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2667419A-DF37-4A85-A62C-68DC7928EC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2667419A-DF37-4A85-A62C-68DC7928EC3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
