@@ -2,6 +2,7 @@ using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
 using Neo.SmartContract.Framework.Services.System;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Numerics;
 
@@ -11,63 +12,47 @@ namespace StorageExample
     public class Contract1 : SmartContract
     {
         [DisplayName("saved")]
-        public static event Action<byte[], uint> Saved;
+        public static event Action<string, uint> Saved;
 
-        /// <summary>
-        /// Hash:
-        /// Key: hash
-        /// Value: block index/height
-        /// </summary>
-        readonly static StorageMap Hash = Storage.CurrentContext.CreateMap(nameof(Hash));
-
-        public static object Main(string operation, object[] args)
+        public static object Main(string method, object[] args)
         {
             if (Runtime.Trigger == TriggerType.Application)
             {
-                if (operation == "save") return Save((byte[])args[0]);
-
-                if (operation == "getSavedBlock") return GetSavedBlock((byte[])args[0]);
-
-                if (operation == "isSaved") return IsSaved((byte[])args[0]);
-
-                if (operation == "isSavedBefore") return IsSavedBefore((byte[])args[0], (uint)args[1]);
+                return method switch
+                {
+                    "put" => Put((string)args[0]),
+                    "get" => Get((string)args[0]),
+                    "exists" => Exists((string)args[0]),
+                    _ => true
+                };
             }
             return true;
         }
 
-        [DisplayName("save")]
-        public static bool Save(byte[] sha256)
+        [DisplayName("put")]
+        public static bool Put(string message)
         {
-            if (sha256.Length != 32) return false;
-            if (IsSaved(sha256)) return false;
-
+            if (Exists(message)) return false;
             var blockChainHeight = Blockchain.GetHeight();
-            Hash.Put(sha256, blockChainHeight);
-            Saved(sha256, blockChainHeight);
+            Storage.Put(message, blockChainHeight);
+            Saved(message, blockChainHeight);
 
             return true;
         }
 
-        [DisplayName("getSavedBlock")]
-        public static uint GetSavedBlock(byte[] sha256)
+        [DisplayName("get")]
+        public static int Get(string message)
         {
-            if (sha256.Length != 32) throw new ArgumentException();
-            if (!IsSaved(sha256)) throw new ArgumentException();
-            return (uint)Hash.Get(sha256).TryToBigInteger();
+            if (!Exists(message)) return -1;
+            return (int)Storage.Get(message).TryToBigInteger();
         }
 
-        [DisplayName("isSaved")]
-        public static bool IsSaved(byte[] sha256)
+        [DisplayName("exists")]
+        public static bool Exists(string message)
         {
-            if (sha256.Length != 32) return false;
-            return Hash.Get(sha256) != null;
+            return Storage.Get(message) != null;
         }
 
-        [DisplayName("isSavedBefore")]
-        public static bool IsSavedBefore(byte[] sha256, uint blockHeight)
-        {
-            return GetSavedBlock(sha256) < blockHeight;
-        }
     }
 
     public static class Helper
